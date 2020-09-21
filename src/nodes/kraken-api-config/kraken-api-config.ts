@@ -1,4 +1,5 @@
 import { NodeInitializer } from "node-red";
+import { krakenApiConfigCredentials } from "./modules/config";
 import { KrakenClient } from "./modules/kraken-client";
 import { KrakenApiConfigNode, KrakenApiConfigNodeDef } from "./modules/types";
 
@@ -22,7 +23,9 @@ const nodeInit: NodeInitializer = (RED): void => {
     }
   }
 
-  RED.nodes.registerType("kraken-api-config", KrakenApiConfigNodeConstructor);
+  RED.nodes.registerType("kraken-api-config", KrakenApiConfigNodeConstructor, {
+    credentials: krakenApiConfigCredentials,
+  });
 };
 
 export = nodeInit;
