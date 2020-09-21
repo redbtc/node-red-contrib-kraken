@@ -25,7 +25,6 @@
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "transform-text": "./dist/nodes/transform-text/transform-text.js",
       "kraken-api-config": "./dist/nodes/kraken-api-config/kraken-api-config.js"
     }
   },
