@@ -20,7 +20,7 @@ RED.nodes.registerType<KrakenApiEditorNodeProperties>("kraken-api", {
       return this.name;
     }
     if (this.method) {
-      return this.method.split("/").splice(0, 1).join("/"); // without private/public part
+      return this.method.split("/").slice(1).join("/"); // without private/public part
     }
     return "kraken api";
   },
