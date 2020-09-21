@@ -25,7 +25,8 @@
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "kraken-api-config": "./dist/nodes/kraken-api-config/kraken-api-config.js"
+      "kraken-api-config": "./dist/nodes/kraken-api-config/kraken-api-config.js",
+      "kraken-api": "./dist/nodes/kraken-api/kraken-api.js"
     }
   },
   "dependencies": {

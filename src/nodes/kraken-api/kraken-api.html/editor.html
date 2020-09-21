@@ -1,0 +1,60 @@
+<script type="text/html" data-template-name="kraken-api">
+  <div class="form-row">
+    <label for="node-input-client"><i class="fa fa-plug"></i> Client</label>
+    <input type="text" id="node-input-client" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-method"><i class="fa fa-list"></i> Method</label>
+    <select id="node-input-method" style="width:70%;">
+      <optgroup label="Public market data">
+        <option value="public/Time">Get server time (public/Time)</option>
+        <option value="public/Assets">Get asset info (public/Assets)</option>
+        <option value="public/AssetPairs">Get tradable asset pairs (public/AssetPairs)</option>
+        <option value="public/Ticker">Get ticker information (public/Ticker)</option>
+        <option value="public/OHLC">Get OHLC data (public/OHLC)</option>
+        <option value="public/Depth">Get order book (public/Depth)</option>
+        <option value="public/Trades">Get recent trades (public/Trades)</option>
+        <option value="public/Spread">Get recent spread data (public/Spread)</option>
+      </optgroup>
+      <optgroup label="Private user data">
+        <option value="private/Balance">Get account balance (private/Balance)</option>
+        <option value="private/TradeBalance">Get trade balance (private/TradeBalance)</option>
+        <option value="private/OpenOrders">Get open orders (private/OpenOrders)</option>
+        <option value="private/ClosedOrders">Get closed orders (private/ClosedOrders)</option>
+        <option value="private/QueryOrders">Query orders info (private/QueryOrders)</option>
+        <option value="private/TradesHistory">Get trades history (private/TradesHistory)</option>
+        <option value="private/QueryTrades">Query trades info (private/QueryTrades)</option>
+        <option value="private/OpenPositions">Get open positions (private/OpenPositions)</option>
+        <option value="private/Ledgers">Get ledgers info (private/Ledgers)</option>
+        <option value="private/QueryLedgers">Query ledgers (private/QueryLedgers)</option>
+        <option value="private/TradeVolume">Get trade volume (private/TradeVolume)</option>
+        <option value="private/AddExport">Request export report (private/AddExport)</option>
+        <option value="private/ExportStatus">Get export statuses (private/ExportStatus)</option>
+        <option value="private/RetrieveExport">Get export report (private/RetrieveExport)</option>
+        <option value="private/RemoveExport">Remove export report (private/RemoveExport)</option>
+      </optgroup>
+      <optgroup label="Private user trading">
+        <option value="private/AddOrder">Add standard order (private/AddOrder)</option>
+        <option value="private/CancelOrder">Cancel open order (private/CancelOrder)</option>
+      </optgroup>
+      <optgroup label="Private user funding">
+        <option value="private/DepositMethods">Get deposit methods (private/DepositMethods)</option>
+        <option value="private/DepositAddresses">Get deposit addresses (private/DepositAddresses)</option>
+        <option value="private/DepositStatus">Get status of recent deposits (private/DepositStatus)</option>
+        <option value="private/WithdrawInfo">Get withdrawal information (private/WithdrawInfo)</option>
+        <option value="private/Withdraw">Withdraw funds (private/Withdraw)</option>
+        <option value="private/WithdrawStatus">Get status of recent withdrawals (private/WithdrawStatus)</option>
+        <option value="private/WithdrawCancel">Request withdrawal cancelation (private/WithdrawCancel)</option>
+        <option value="private/WalletTransfer">Wallet Transfer (private/WalletTransfer)</option>
+      </optgroup>
+      <option value="">via msg.method</option>
+    </select>
+  </div>
+
+  <hr />
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
