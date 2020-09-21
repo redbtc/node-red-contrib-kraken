@@ -1,7 +1,7 @@
 {
-  "name": "node-red-contrib-MY_NODESET_NAME",
-  "version": "0.2.2",
-  "description": "Description of the node set here",
+  "name": "node-red-contrib-kraken",
+  "version": "0.1.0",
+  "description": "Node-RED nodes to talk to Kraken",
   "scripts": {
     "add-node": "node ./utils/add-node.js",
     "copy": "copyfiles -u 2 \"./src/nodes/**/*.{png,svg}\" \"./dist/nodes/\"",
@@ -14,9 +14,14 @@
     "test:watch": "jest --forceExit --detectOpenHandles --watchAll",
     "dev": "rm -rf dist && yarn copy && concurrently --kill-others --names 'COPY,EDITOR,RUNTIME,TEST' --prefix '({name})' --prefix-colors 'yellow.bold,cyan.bold,greenBright.bold,magenta.bold' 'onchange -v \"src/**/*.png\" \"src/**/*.svg\" -- yarn copy' 'yarn build:editor:watch' 'yarn build:runtime:watch' 'sleep 10; yarn test:watch'",
     "lint": "prettier --ignore-path .eslintignore --check '**/*.{js,ts,md}'; eslint --ext .js,.ts .",
-    "lint:fix": "prettier --ignore-path .eslintignore --write '**/*.{js,ts,md}'; eslint --ext .js,.ts . --fix"
+    "lint:fix": "prettier --ignore-path .eslintignore --write '**/*.{js,ts,md}'; eslint --ext .js,.ts . --fix",
+    "release": "yarn build && yarn publish && git push --follow-tags"
   },
   "author": "Alex Kaul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redbtc/node-red-contrib-kraken"
+  },
   "license": "MIT",
   "node-red": {
     "nodes": {
