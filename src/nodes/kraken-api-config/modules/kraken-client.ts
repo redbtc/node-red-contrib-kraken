@@ -7,7 +7,7 @@ const apiRootUrl = "https://api.kraken.com";
 const userAgent = "node-red-contrib-kraken";
 
 const commonHeaders: Record<string, string> = {
-  Accept: "application/json",
+  "Content-Type": "application/x-www-form-urlencoded",
   "User-Agent": userAgent,
 };
 
@@ -67,10 +67,12 @@ export class KrakenClient {
     const bufPrivKey = Buffer.from(this.privKey, "base64");
 
     const hash = crypto.createHash("sha256");
-    const hashDigest = hash.update(nonce.toString() + body).digest();
+    const hashDigest = hash.update(nonce.toString() + body).digest("latin1");
 
     const hmac = crypto.createHmac("sha512", bufPrivKey);
-    const hmacDigest = hmac.update(path + hashDigest).digest("base64");
+    const hmacDigest = hmac
+      .update(path + hashDigest, "latin1")
+      .digest("base64");
 
     return {
       "API-Key": this.apiKey,
