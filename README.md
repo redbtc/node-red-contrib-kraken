@@ -55,6 +55,10 @@ This example implements a simple way to add pre-configured (in the "🔨 Order p
 
 Flow json for Node-RED: [kraken-adding-orders.json](examples/kraken-adding-orders.json)
 
+### More Examples
+
+- [Exchanging Part Of Amount From Paid Invoices](https://redbtc.org/flows/integrations/kraken-exchange)
+
 ## API Reference
 
 Kraken API Reference: https://www.kraken.com/features/api
