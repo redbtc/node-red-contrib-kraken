@@ -12,7 +12,7 @@ npm install --save node-red-contrib-kraken
 
 ## Usage
 
-This is a Kraken API client node. It makes API requests by sending msg.payload data to the specified API endpoint and outputs the response data as msg.payload.
+This is a Kraken API client node. It makes API requests by sending `msg.payload` data to the specified API endpoint and outputs the response data as `msg.payload`.
 
 ### Configuration
 
