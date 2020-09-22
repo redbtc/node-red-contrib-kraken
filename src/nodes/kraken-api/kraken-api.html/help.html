@@ -1,3 +1,48 @@
 <script type="text/html" data-help-name="kraken-api">
-  <p>Node description goes here.</p>
+  <p>Makes requests to Kraken API and outputs the response.</p>
+
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt class="optional">method <span class="property-type">string</span></dt>
+    <dd>
+      If not configured in the node, this optional property sets the API method
+      to call.
+    </dd>
+
+    <dt class="optional">payload <span class="property-type">object</span></dt>
+    <dd>Sent as the API input data.</dd>
+  </dl>
+
+  <h3>Outputs</h3>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">object</span></dt>
+    <dd>The Kraken API response's data.</dd>
+  </dl>
+
+  <h3>References</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/redbtc/node-red-contrib-kraken#configuration">Configuration</a> - docs
+      on configuring Kraken API node
+    </li>
+    <li>
+      <a href="https://github.com/redbtc/node-red-contrib-kraken#making-api-requests">Making Requests</a> -
+      docs on making API requests with Kraken API Node
+    </li>
+    <li>
+      <a href="https://github.com/redbtc/node-red-contrib-kraken#examples">Example Flows</a> - examples made with Kraken API node
+    </li>
+    <li>
+      <a
+        href="https://www.kraken.com/features/api"
+        rel="noreferrer noopener"
+        >API Reference</a
+      >
+      - description of API methods and data
+    </li>
+    <li>
+      <a href="https://github.com/redbtc/node-red-contrib-kraken">GitHub</a> -
+      project home on GitHub
+    </li>
+  </ul>
 </script>
