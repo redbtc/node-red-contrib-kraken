@@ -1,0 +1,105 @@
+[
+  {
+    "id": "5a5c6081.d41cf",
+    "type": "kraken-api",
+    "z": "1cb4cf41.7bd001",
+    "client": "",
+    "method": "private/AddOrder",
+    "name": "",
+    "x": 720,
+    "y": 260,
+    "wires": [["12c4a06b.eef2e"]]
+  },
+  {
+    "id": "6ca2a5ad.7dadec",
+    "type": "inject",
+    "z": "1cb4cf41.7bd001",
+    "name": "Add Order",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{}",
+    "payloadType": "json",
+    "x": 300,
+    "y": 260,
+    "wires": [["afd1db29.edd878"]]
+  },
+  {
+    "id": "12c4a06b.eef2e",
+    "type": "debug",
+    "z": "1cb4cf41.7bd001",
+    "name": "Order Confirmation",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 930,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "afd1db29.edd878",
+    "type": "change",
+    "z": "1cb4cf41.7bd001",
+    "name": "🔨 Order params",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.pair",
+        "pt": "msg",
+        "to": "BTCUSD",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload.type",
+        "pt": "msg",
+        "to": "buy",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload.ordertype",
+        "pt": "msg",
+        "to": "market",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload.volume",
+        "pt": "msg",
+        "to": "0.001",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 510,
+    "y": 260,
+    "wires": [["5a5c6081.d41cf"]]
+  },
+  {
+    "id": "8081b7e1.0799b8",
+    "type": "comment",
+    "z": "1cb4cf41.7bd001",
+    "name": "Adding Orders",
+    "info": "",
+    "x": 310,
+    "y": 200,
+    "wires": []
+  }
+]

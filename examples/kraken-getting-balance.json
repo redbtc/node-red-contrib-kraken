@@ -1,0 +1,61 @@
+[
+  {
+    "id": "d168c1a1.802de",
+    "type": "kraken-api",
+    "z": "1cb4cf41.7bd001",
+    "client": "",
+    "method": "private/Balance",
+    "name": "",
+    "x": 500,
+    "y": 500,
+    "wires": [["9b389f16.2ace9"]]
+  },
+  {
+    "id": "c0b355f5.c5cd18",
+    "type": "inject",
+    "z": "1cb4cf41.7bd001",
+    "name": "Get Balance",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{}",
+    "payloadType": "json",
+    "x": 310,
+    "y": 500,
+    "wires": [["d168c1a1.802de"]]
+  },
+  {
+    "id": "9b389f16.2ace9",
+    "type": "debug",
+    "z": "1cb4cf41.7bd001",
+    "name": "Balance Data",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 700,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "562a4eb1.d7183",
+    "type": "comment",
+    "z": "1cb4cf41.7bd001",
+    "name": "Getting Balance",
+    "info": "",
+    "x": 320,
+    "y": 440,
+    "wires": []
+  }
+]

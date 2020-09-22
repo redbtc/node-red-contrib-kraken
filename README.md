@@ -1,68 +1,67 @@
-# Node-RED Node TypeScript Starter
+# Kraken Node
 
-This is a quick-start template repository for creating new Node-RED node sets in TypeScript.
+<a href="https://nodered.org" target="_blank">Node-RED</a> node to interact with <a href="https://www.kraken.com/" target="_blank">Kraken</a>.
 
-## Project Structure
+## Install
 
-```
-node-red-node-typescript-starter/
- ├──src/                             * source files of the node set
- │   ├──__tests__/                   * tests for the node set (test file names should match *.test.ts glob pattern)
- │   │   └──transform-text.test.ts   * tests for the transform-text node
- │   │
- │   └──nodes/                       * node set folder, where subfolder names = node types
- │       ├──shared/                  * folder for .ts files shared across multiple nodes in the node set
- │       │
- │       └──transform-text/          * source files of the transform-text node
- │           ├──icons/               * custom icons used by the node set in the editor
- │           │
- │           ├──modules/             * .ts modules for the runtime side (transform-text.js file) of the node
- │           │
- │           ├──shared/              * folder for .ts files shared between the runtime side (.js file) and the editor side (.html file) of the node
- │           │
- │           ├──transform-text.html/ * files for compiling and bundling into the editor side (transform-text.html file) of the node
- │           │   ├──modules/         * .ts modules
- │           │   ├──editor.html      * html template for the edit dialog
- │           │   ├──help.html        * html template for the help in the info tab
- │           │   └──index.ts         * entry file
- │           │
- |           └──transform-text.ts    * entry file for the runtime side (transform-text.js file) of the node
- |
- ├──package.json                     * dependencies and node types for the Node-RED runtime to load
- |
- ├──rollup.config.editor.json        * rollup config for building the editor side of the nodes
- |
- ├──tsconfig.json                    * base typescript config, for the code editor
- ├──tsconfig.runtime.json            * config for creating a production build of the runtime side of the nodes
- └──tsconfig.runtime.watch.json      * config for watching and incremental building the runtime side of the nodes
-```
-
-## Getting Started
-
-1. Generate a new GitHub repository by clicking the `Use this template` button at the top of the repository homepage, then clone your new repo. Or you might just clone this repo: `git clone https://github.com/alexk111/node-red-node-typescript-starter.git` and cd into it: `cd node-red-node-typescript-starter`.
-2. This project is designed to work with `yarn`. If you don't have `yarn` installed, you can install it with `npm install -g yarn`.
-3. Install dependencies: `yarn install`.
-
-## Adding Nodes
-
-You can quickly scaffold a new node and add it to the node set. Use the following command to create `my-new-node-type` node:
+Run the following command in the root directory of your Node-RED instance:
 
 ```
-yarn add-node my-new-node-type
+npm install --save node-red-contrib-kraken
 ```
 
-The node generator is based on mustache templates. At the moment there are two templates available:
+## Usage
 
-- `blank` (used by default) - basic node for Node-RED >=1.0
-- `blank-0` - node with a backward compatibility for running on Node-RED <1.0
+This is a Kraken API client node. It makes API requests by sending msg.payload data to the specified API endpoint and outputs the response data as msg.payload.
 
-To generate a node using a template called `my-template`, enter this command:
+### Configuration
 
-```
-yarn add-node my-new-node-type my-template
-```
+You first need to create a new API Key:
 
-To make your custom-made template available, add it to `./utils/templates/`.
+1. Go to <a href="https://www.kraken.com/u/settings/api" target="_blank">API Key Management</a> on your Kraken account
+2. Click the `Generate New Key` button
+3. Enter a description and set permissions based on what API methods you'd execute
+4. Click the `Generate Key` button
+
+Now you need to configure your Kraken client:
+
+1. Open your Node-RED instance
+2. Drag & drop the `kraken api` node from the palette to the workspace and double-click on it, to open the node editor
+3. In the `Client` dropdown menu pick the `Add New kraken-api-config` option and press the pencil button at the right to add a new API configuration
+4. Copy-paste `API Key` and `Private Key` from the key page on Kraken to the node editor
+5. Push `Update`
+
+### Making API requests
+
+To make requests using the `kraken-api` node, you need to pick the api method the node will call. This can be either specified in the node settings, or provided in `msg.method` (if the method set to "via msg.method"). And `msg.payload` is the api input data.
+
+After executing a request the node returns a message with the response data set to `msg.payload`.
+
+## Examples
+
+### Getting Account Balance
+
+This example enables to get your account balance by clicking the inject button. The "Balance Data" node outputs your balance data to Debug window.
+
+![Getting Balance](examples/kraken-getting-balance.png)
+
+Flow json for Node-RED: [kraken-getting-balance.json](examples/kraken-getting-balance.json)
+
+### Adding Orders
+
+This example implements a simple way to add pre-configured (in the "🔨 Order params" node) orders by clicking the inject button. The "Order Confirmation" node outputs the order description info to Debug window.
+
+![Adding Orders](examples/kraken-adding-orders.png)
+
+Flow json for Node-RED: [kraken-adding-orders.json](examples/kraken-adding-orders.json)
+
+## API Reference
+
+Kraken API Reference: https://www.kraken.com/features/api
+
+## Donate 💝
+
+If you want to support this free open-source project, you can [donate by clicking this link](https://donate.alexkaul.com/kraken-node)
 
 ## Developing Nodes
 
@@ -70,14 +69,6 @@ Build & Test in Watch mode:
 
 ```
 yarn dev
-```
-
-## Building Node Set
-
-Create a production build:
-
-```
-yarn build
 ```
 
 ## Testing Node Set in Node-RED
