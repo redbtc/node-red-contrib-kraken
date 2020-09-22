@@ -23,6 +23,11 @@
     "url": "https://github.com/redbtc/node-red-contrib-kraken"
   },
   "license": "MIT",
+  "keywords": [
+    "node-red",
+    "kraken",
+    "bitcoin"
+  ],
   "node-red": {
     "nodes": {
       "kraken-api-config": "./dist/nodes/kraken-api-config/kraken-api-config.js",
