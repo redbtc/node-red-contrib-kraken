@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-kraken",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node-RED nodes to talk to Kraken",
   "scripts": {
     "add-node": "node ./utils/add-node.js",
