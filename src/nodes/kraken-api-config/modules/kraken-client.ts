@@ -67,7 +67,7 @@ export class KrakenClient {
     const bufPrivKey = Buffer.from(this.privKey, "base64");
 
     const hash = crypto.createHash("sha256");
-    const hashDigest = hash.update(nonce.toString() + body).digest("latin1");
+    const hashDigest = hash.update(nonce.toString() + body).digest().toString("latin1");
 
     const hmac = crypto.createHmac("sha512", bufPrivKey);
     const hmacDigest = hmac
