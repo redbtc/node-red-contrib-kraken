@@ -1,7 +1,7 @@
 {
-  "name": "node-red-contrib-kraken",
-  "version": "0.1.1",
-  "description": "Node-RED nodes to talk to Kraken",
+  "name": "node-red-contrib-kraken-futures",
+  "version": "0.1.0",
+  "description": "Node-RED nodes to talk to Kraken Futures",
   "scripts": {
     "add-node": "node ./utils/add-node.js",
     "copy": "copyfiles -u 2 \"./src/nodes/**/*.{png,svg}\" \"./dist/nodes/\"",
@@ -26,6 +26,7 @@
   "keywords": [
     "node-red",
     "kraken",
+    "kraken futures",
     "bitcoin"
   ],
   "node-red": {
