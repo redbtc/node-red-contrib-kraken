@@ -2,9 +2,13 @@ import crypto from "crypto";
 import fetch from "node-fetch";
 import qs from "querystring";
 
-const apiRootUrl = "https://api.kraken.com";
+// regular API 
+// const apiRootUrl = "https://api.kraken.com";
 
-const userAgent = "node-red-contrib-kraken";
+const apiRootUrl = "https://www.cryptofacilities.com";
+
+
+const userAgent = "node-red-contrib-kraken-futures";
 
 const commonHeaders: Record<string, string> = {
   "Content-Type": "application/x-www-form-urlencoded",
